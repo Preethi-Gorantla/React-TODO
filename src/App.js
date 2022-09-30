@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Main, Card, Heading} from './styles';
+import {useState } from 'react';
+import sun from '../src/components/images/sun.svg';
+import moon from '../src/components/images/moon.svg';
+import { AddItem } from './components/AddItem/AddItem';
 
-function App() {
+const App = () => {
+  const[theme,setTheme] = useState(true);
+
+  const handleTheme = () => {
+    setTheme(!theme);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Main  isTheme={theme}>
+          <Card  isTheme={theme}>
+              <Heading> To Do  </Heading>
+              <img src={theme?sun:moon} alt="" onClick={handleTheme}/>
+          </Card>
+          <AddItem isTheme={theme}/>
+        </Main>
   );
 }
 
