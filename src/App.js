@@ -1,4 +1,4 @@
-import { Main, Card, Heading} from './styles';
+import { Main, Card, Heading,GlobalStyle} from './styles';
 import {useState } from 'react';
 import sun from '../src/components/images/sun.svg';
 import moon from '../src/components/images/moon.svg';
@@ -13,6 +13,7 @@ const App = () => {
 
   return (
         <Main  isTheme={theme}>
+          <GlobalStyle/>
           <Card  isTheme={theme}>
               <Heading> To Do  </Heading>
               <img src={theme?sun:moon} alt="" onClick={handleTheme}/>

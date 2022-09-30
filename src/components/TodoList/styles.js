@@ -63,6 +63,7 @@ export const Footer = styled.ul`
 export const Image =styled.img`
     width: 15px;
     height: 15px;
+    cursor: pointer;
 `
 export const Hr=styled.hr`
     width: 108%;
@@ -81,7 +82,8 @@ export const Button = styled.button`
     color: ${props => props.isActive ? 'hsl(220, 98%, 61%)' : ''};
     color: ${props => props.isAll ? 'hsl(220, 98%, 61%)' : ''};
     color: ${props => props.isCmplt ? 'hsl(220, 98%, 61%)' : ''};
-    &:hover{
+    &:hover,
+    &:focus{
         font-weight: 700 bold;
     }
     margin: 0px;

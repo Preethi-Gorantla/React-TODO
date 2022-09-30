@@ -13,11 +13,14 @@ export const Actions = (props) => {
     const[count,setCount] = useState(props.count)
 
     useEffect(() => {
-        setCount(count)
-    },[count])
+        setCount(props.count)
+    },[props.count])
 
-    const handleNewData = (newAdded) => {
-        props.handleUpdate(newAdded)
+    console.log("count",count)
+    console.log("propscount",props.count)
+    const handleNewData = (newAdded,deleted) => {
+        console.log("newAdded",newAdded,deleted)
+        props.handleUpdate(newAdded,deleted)
     }
 
     const conditionFetch = (option) => {
@@ -36,7 +39,7 @@ export const Actions = (props) => {
                 setActive(false)
                 const cmpltd=items.filter(item => item.checked)
                 setCompletedTask(cmpltd)
-                setCount(cmpltd.length!==0 ? cmpltd.length : 0)
+                setCount(cmpltd.length!==0 && cmpltd.length )
                 break
             case 'clear':
                 setAll(false)
@@ -60,11 +63,11 @@ export const Actions = (props) => {
 
     return(
         <Fragment>
-            {all &&  <TodoList items={props.items} isTheme={isTheme} handleUpdate={handleNewData}/>}
+            {all &&  <TodoList items={props.items} isTheme={isTheme} handleUpdates={handleNewData}/>}
             {active &&  <TodoList items={activeTask} isTheme={isTheme}/>}
             {completed &&  <TodoList items={completedTask} isTheme={isTheme}/>}
             <Footer isTheme={isTheme}>
-                <li><Count  isTheme={isTheme} >{completed  ? 'no items left' : `${count} items left`}</Count></li>
+                <li><Count  isTheme={isTheme} >{completed ? 'no items left' : `${count} items left`}</Count></li>
                 <li><Button isTheme={isTheme} type="button" 
                     onClick={() => conditionFetch('all')} isAll={all}>All
                     </Button>

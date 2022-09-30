@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {  TodoItem } from "../TodoList/styles"
 import { AddTask, FormEle, CardContainer } from "./styles"
 import {Actions} from '../Footer/Actions'
@@ -17,11 +17,11 @@ export const AddItem = (props) => {
 ]
 
     const[items,setItems] = useState(dummyData)
+    console.log("items",items)
     const [newTask,setNewTask] = useState({})
     const [count,setCount] = useState(items.length)
     
     const handleTask = (event) => {
-        setNewTask("")
          setNewTask({id:Math.random(),
             text:event.target.value,
             checked:false})
@@ -29,15 +29,22 @@ export const AddItem = (props) => {
 
     const handleNewTask = (event) => {
         event.preventDefault()
+        //console.log(newTask)
         setItems([...items,newTask])
+        //setNewTask("")
         setCount(items.length+1)
     }
 
-    const handleUpdateTask = (newUpdate) => {
+    const handleUpdateTask = (newUpdate,deleted) => {
+        console.log("newUpdate",newUpdate)
         setItems(newUpdate)
-        setCount(count-1)
+        deleted && setCount(count-1)
     }
     
+    // useEffect(()  =>  {
+    //     setCount(items.length)
+    // },[items])
+
     return(
         <CardContainer>
         <FormEle onSubmit={handleNewTask}>
@@ -46,7 +53,7 @@ export const AddItem = (props) => {
 
         {items.length === 0 ? (
             <TodoItem isLength={items.length>0} isTheme={isTheme}>Start Adding your goals</TodoItem>) :''}
-        <Actions isTheme={isTheme} items={items} handleUpdate={handleUpdateTask} count={count}/>
+            <Actions isTheme={isTheme} items={items} handleUpdate={handleUpdateTask} count={count}/>
         </CardContainer>
     )
 }
