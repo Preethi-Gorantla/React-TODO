@@ -16,10 +16,7 @@ export const Actions = (props) => {
         setCount(props.count)
     },[props.count])
 
-    console.log("count",count)
-    console.log("propscount",props.count)
     const handleNewData = (newAdded,deleted) => {
-        console.log("newAdded",newAdded,deleted)
         props.handleUpdate(newAdded,deleted)
     }
 

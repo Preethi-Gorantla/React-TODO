@@ -1,10 +1,9 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Checkbox, TodoItem,Image, TodoItemContainer, Hr, Label } from "./styles";
 import cross from './cross.svg';
 
 export const TodoList = (props) => {
     const data = props.items;
-    const [deleted,setDeleted] = useState(false);
     const handleChecked = (id) => {
         for(let i of data){
             if(i.id === id){
@@ -18,8 +17,6 @@ export const TodoList = (props) => {
         for(let i of data){
             if(i.id === val.id){
                 data.splice(data.indexOf(i),1);
-                setDeleted(true)
-                //props.handleUpdate(true)
                 break
             }
         }
@@ -32,7 +29,7 @@ export const TodoList = (props) => {
                         <Fragment key={item.id}>
                             <TodoItem  isTheme={props.isTheme} >
                                 <Label htmlFor={item.id} isClicked={item.checked}> 
-                                    <Checkbox type="checkbox" setTheme={props.isTheme} checked={item.checked}
+                                    <Checkbox type="checkbox" setTheme={props.isTheme}
                                     onChange={event => handleChecked(item.id)} id={item.id} value={item.text}/> 
                                     {item.text}
                                 </Label> 

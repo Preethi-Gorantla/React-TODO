@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import {  TodoItem } from "../TodoList/styles"
 import { AddTask, FormEle, CardContainer } from "./styles"
 import {Actions} from '../Footer/Actions'
@@ -17,7 +17,6 @@ export const AddItem = (props) => {
 ]
 
     const[items,setItems] = useState(dummyData)
-    console.log("items",items)
     const [newTask,setNewTask] = useState({})
     const [count,setCount] = useState(items.length)
     
@@ -29,21 +28,14 @@ export const AddItem = (props) => {
 
     const handleNewTask = (event) => {
         event.preventDefault()
-        //console.log(newTask)
         setItems([...items,newTask])
-        //setNewTask("")
         setCount(items.length+1)
     }
 
     const handleUpdateTask = (newUpdate,deleted) => {
-        console.log("newUpdate",newUpdate)
         setItems(newUpdate)
         deleted && setCount(count-1)
     }
-    
-    // useEffect(()  =>  {
-    //     setCount(items.length)
-    // },[items])
 
     return(
         <CardContainer>
