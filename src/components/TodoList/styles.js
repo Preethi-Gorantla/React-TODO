@@ -57,6 +57,7 @@ export const Footer = styled.ul`
     height: 10vh;
     flex-wrap: wrap;
     background-color: ${props => props.isTheme ? 'white' :'hsl(235, 24%, 19%)'};
+    color: ${props => props.isTheme ? 'hsl(235, 19%, 35%)' :'hsl(234, 39%, 85%)'};
     border-radius: 10px;
 `
 

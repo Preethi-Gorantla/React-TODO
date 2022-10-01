@@ -10,6 +10,7 @@ export const TodoList = (props) => {
                 i.checked = !i.checked;
             }
         }
+        console.log("data",data)
         props.handleUpdates(data)
     }
 

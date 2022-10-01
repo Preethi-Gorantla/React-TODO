@@ -60,6 +60,8 @@ export const Actions = (props) => {
 
     return(
         <Fragment>
+            {props.items.length === 0 ? (
+            <Footer isLength={items.length>0} isTheme={isTheme}>Start Adding your goals</Footer>) :''}
             {all &&  <TodoList items={props.items} isTheme={isTheme} handleUpdates={handleNewData}/>}
             {active &&  <TodoList items={activeTask} isTheme={isTheme}/>}
             {completed &&  <TodoList items={completedTask} isTheme={isTheme}/>}

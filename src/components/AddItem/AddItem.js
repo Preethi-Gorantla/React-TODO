@@ -1,5 +1,4 @@
 import {  useState } from "react"
-import {  TodoItem } from "../TodoList/styles"
 import { AddTask, FormEle, CardContainer } from "./styles"
 import {Actions} from '../Footer/Actions'
 
@@ -42,9 +41,6 @@ export const AddItem = (props) => {
         <FormEle onSubmit={handleNewTask}>
            <AddTask isTheme={isTheme} type='text' placeholder="Create new todo" onChange={handleTask}/> 
         </FormEle>
-
-        {items.length === 0 ? (
-            <TodoItem isLength={items.length>0} isTheme={isTheme}>Start Adding your goals</TodoItem>) :''}
             <Actions isTheme={isTheme} items={items} handleUpdate={handleUpdateTask} count={count}/>
         </CardContainer>
     )
