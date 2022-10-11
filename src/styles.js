@@ -22,7 +22,7 @@ export const Main = styled.div`
 export const Card = styled.span`
     color: white;
     background-image: url(${props => props.isTheme ? light : dark});
-    width: 100%;
+    width: 100vw;
     height: 50vh;
     background-size: cover;
     display: flex;

@@ -31,7 +31,7 @@ export const TodoList = (props) => {
                             <TodoItem  isTheme={props.isTheme} >
                                 <Label htmlFor={item.id} isClicked={item.checked}> 
                                     <Checkbox type="checkbox" setTheme={props.isTheme}
-                                    onChange={event => handleChecked(item.id)} id={item.id} value={item.text}/> 
+                                    onChange={event => handleChecked(item.id)} id={item.id} value={item.text} fill='hsl(235, 21%, 11%)'/> 
                                     {item.text}
                                 </Label> 
                             <Image src={cross} alt="" onClick={() => handleDelete(item)}/>

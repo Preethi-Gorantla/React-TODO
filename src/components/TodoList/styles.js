@@ -49,11 +49,13 @@ export const Footer = styled.ul`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 65vw;
+    width: 88vw;
+    //margin-right: 8px;
+    margin-left: -35px;
     @media (min-width: 768px) {
         width: 50vw;
     }
-    margin: 0px;
+    //margin: 0px;
     height: 10vh;
     flex-wrap: wrap;
     background-color: ${props => props.isTheme ? 'white' :'hsl(235, 24%, 19%)'};
@@ -62,15 +64,25 @@ export const Footer = styled.ul`
 `
 
 export const Image =styled.img`
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 10px;
+    margin-top: 13px;
     cursor: pointer;
+    @media (min-width : 768px){
+        width: 15px;
+        height: 15px;
+        margin-top: 10px;
+    }
 `
 export const Hr=styled.hr`
-    width: 108%;
-    margin-left: -35px;
+    width: 177%;
+    margin-left: -90px;
     color: ${props => props.isTheme ? 'hsl(235, 19%, 35%)' :'hsl(234, 39%, 85%)'};
     margin-top: -5px;
+    @media (min-width: 768px){
+        width:108% ;
+        margin-left: -35px;
+    }
 `
 export const Button = styled.button`
     border: 0px;
